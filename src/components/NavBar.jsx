@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { close, logo, menu } from '../assets'; // Ensure these paths are correct
 import { navLinks } from '../constants';
 import LoginButton from './Login';
+import SignupButton from './Signup';
+
 
 
 const NavBar = () => {
@@ -13,8 +15,8 @@ const NavBar = () => {
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
         {navLinks.map((el, index) => (
           <li key={el.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}>
-            {el.id === "login" ? (
-              <LoginButton />
+            {el.id === "login" || el.id === "signup" ? (
+              <IsLogOrSign status={el.id} />
             ) : (
               <a href={`#${el.id}`}>
                 {el.title}
@@ -45,6 +47,13 @@ const NavBar = () => {
       </div>
     </nav>
   )
+}
+
+function IsLogOrSign({status}){
+  if(status === 'login'){
+    return <><LoginButton /></>
+  }
+  return <SignupButton />
 }
 
 export default NavBar
