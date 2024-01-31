@@ -1,6 +1,5 @@
 import styles from "../style";
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "../components";
-import Login from "../components/Login"
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
             <CardDeal />
             <Testimonials />
             <Clients />
-            <Login />
             <CTA />
             <Footer />
           </div>
