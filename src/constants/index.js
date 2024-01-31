@@ -1,4 +1,19 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import {
+  people01,
+  people02,
+  people03,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+  airbnb,
+  binance,
+  coinbase,
+  dropbox,
+  send,
+  shield,
+  star,
+} from "../assets";
 
 export const navLinks = [
   {
@@ -21,11 +36,14 @@ export const navLinks = [
     id: "clients",
     title: "community",
   },
-   {
+  {
     id: "login",
     title: "Login",
   },
-
+  {
+    id: "signup",
+    title: "Signup",
+  },
 ];
 
 export const features = [
@@ -34,7 +52,7 @@ export const features = [
     icon: star,
     title: "Anonymous Chat",
     content:
-    "Join hands with others at DepressionHUB who know what you're going through right now. Together, we create a circle of understanding and support." ,
+      "Join hands with others at DepressionHUB who know what you're going through right now. Together, we create a circle of understanding and support.",
   },
   {
     id: "feature-2",
@@ -48,7 +66,7 @@ export const features = [
     icon: send,
     title: "Community",
     content:
-    "DepressionHUB Community Where We Come Together, Share Stories, and Grow Anonymously – Your Place for Support and Hope.",
+      "DepressionHUB Community Where We Come Together, Share Stories, and Grow Anonymously – Your Place for Support and Hope.",
   },
 ];
 
@@ -64,7 +82,7 @@ export const feedback = [
   {
     id: "feedback-2",
     content:
-    "I can't thank DepressionHUB enough. The community here is incredibly supportive, and the therapists are top-notch. It's not just an app; it's a beacon of hope for those facing mental health challenges.",
+      "I can't thank DepressionHUB enough. The community here is incredibly supportive, and the therapists are top-notch. It's not just an app; it's a beacon of hope for those facing mental health challenges.",
     name: "Steve Mark",
     title: "",
     img: people02,
@@ -72,9 +90,8 @@ export const feedback = [
   {
     id: "feedback-3",
     content:
-    "DepressionHUB is more than an app; it's a lifesaver. The anonymous chats allowed me to reach out when I needed it most, and the therapists are true professionals. This platform is making a real difference."
+      "DepressionHUB is more than an app; it's a lifesaver. The anonymous chats allowed me to reach out when I needed it most, and the therapists are true professionals. This platform is making a real difference.",
 
-,
     name: "Kenn Gallagher",
     title: "",
     img: people03,
@@ -185,7 +202,6 @@ export const socialMedia = [
     id: "social-media-4",
     icon: linkedin,
     link: "https://www.linkedin.com/in/depression-hub/",
-                   
   },
 ];
 
