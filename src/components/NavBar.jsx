@@ -47,7 +47,12 @@ const NavBar = () => {
                     index === navLinks.length - 1 ? "mr-0" : "mb-4"
                   } text-white`}
                 >
-                  <a href={`#${el.id}`}>{el.title}</a>
+                  {el.id === "login" || el.id === "signup" ? (
+                    <IsLogOrSign status={el.id} />
+                  ) : (
+                    <a href={`#${el.id}`}>{el.title}</a>
+                  )}
+                  {/* <a href={`#${el.id}`}>{el.title}</a> */}
                 </li>
               );
             })}
@@ -60,7 +65,6 @@ const NavBar = () => {
 
 function IsLogOrSign({ status }) {
   const navigate = useNavigate();
-  console.log(status)
   if (status === "login") {
     return <button onClick={() => navigate("/login")}>Log In</button>;
   }
