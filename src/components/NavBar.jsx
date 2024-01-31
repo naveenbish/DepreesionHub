@@ -1,24 +1,27 @@
-import React,{useState} from 'react'
-import {close, logo, menu} from '../assets'
-import {navLinks} from '../constants'
+import React, { useState } from 'react';
+import { close, logo, menu } from '../assets'; // Ensure these paths are correct
+import { navLinks } from '../constants';
+import LoginButton from './Login';
+
 
 const NavBar = () => {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
+
   return (
     <nav className='w-full flex py-6 justify-between items-center navbar'>
       <img src={logo} alt="hoobank" className='w-[124px] h-[32px]' />
-      <ul className='list-none sm:flex hidden justify-end items-center flxe-1'>
-        {
-          navLinks.map((el, index)=>{
-            return(
-              <li key={el.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length-1 ? 'mr-0':'mr-10'} text-white`}>
-                <a href={`#${el.id}`}>
-                  {el.title}
-                </a>
-              </li>
-            )
-          })
-        }
+      <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
+        {navLinks.map((el, index) => (
+          <li key={el.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}>
+            {el.id === "login" ? (
+              <LoginButton />
+            ) : (
+              <a href={`#${el.id}`}>
+                {el.title}
+              </a>
+            )}
+          </li>
+        ))}
       </ul>
 
       <div className='sm:hidden flex flex-1 justify-end items-center'>

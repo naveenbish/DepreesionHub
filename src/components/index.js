@@ -4,6 +4,7 @@ import CardDeal from "./CardDeal";
 import Business from "./Bussiness";
 import Clients from "./Clients";
 import CTA from "./Cta";
+import LoginButton from "./Login";
 import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
@@ -18,6 +19,7 @@ export {
   Business,
   Clients,
   CTA,
+  LoginButton ,
   Stats,
   Footer,
   Testimonials,

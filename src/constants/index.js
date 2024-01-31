@@ -24,7 +24,6 @@ export const navLinks = [
    {
     id: "login",
     title: "Login",
-    onClick: ( ) => {/* trigger login functionality here */ } ,
   },
 
 ];

@@ -1,6 +1,6 @@
 import styles from "./style";
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components";
-import Login from "./constants/login"
+import Login from "./components/Login"
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
