@@ -101,7 +101,8 @@ router.post('/signin', async (req, res) => {
 });
 
 // Profile picture upload API (if needed as separate)
-router.post('/upload-profile-pic', upload.single('profilePic'), (req, res) => {
+router.post('/upload-profile-pic', upload.single('profilePic'), (req
+, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
@@ -145,5 +146,63 @@ router.put('/updateInfo', async (req, res) => {
         }).status(500); 
     }
 });
+
+router.post('/bulk',async(req,res)=>{
+    const  { filter } = req.body ?? ""
+    const users = await userModel.find({
+        $or:[
+            {
+            firstName:{$regex:filter,$options:'i'}
+            },{
+            lastName:{$regex:filter,$options:'i'}
+            }
+        ]
+        })
+    if(!users){
+    return res.json({
+            status:true,
+            message:"No Users Found"
+        }).status(200)
+    }
+    return res.json({
+        success:true,
+        users
+    }).status(200)
+})
+
+
+router.get('/fetchDetails',authMiddleware, async(req,res)=>{
+    const user = await userModel.findById(req.userID)
+    if(!user){
+        return res.json({
+            success:false,
+            message:"Could not find user details"
+        }).status(400)
+    }
+    return res.json({
+        success:true,
+        user
+    }).status(200)
+
+})
+router.post('/fetchAnyUser',authMiddleware, async(req,res)=>{
+
+
+    const user = await userModel.findById(req.body.userID)
+    if(!user){
+        return res.json({
+            success:false,
+            message:"Could not find user details"
+        }).status(400)
+    }
+    return res.json({
+        success:true,
+        user
+    }).status(200)
+
+})
+
+
+
 
 module.exports = router; 
