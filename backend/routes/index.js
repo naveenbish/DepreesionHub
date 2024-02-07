@@ -1,12 +1,13 @@
 const express = require('express'); 
 const zod = require('zod');
+const userModel = require('../db')
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const bcrypt = require('bcrypt'); 
 const path = require('path');
-const userModel = require('./models/userModel'); 
-const accountModel = require('./models/accountModel'); 
+const authMiddleware = require('../middleware')
+
 
 // Zod schema for validation
 const userSchema = zod.object({
@@ -31,6 +32,8 @@ const upload = multer({ storage: storage });
 
 // Signup API
 router.post('/signup', upload.single('profilePic'), async (req, res) => {
+    res.send('Welcome')
+    console.log(hey)
     const { username, password, firstName, lastName } = req.body;
     const profilePicPath = req.file ? req.file.path : ''; // Handle the file path
     const validationResult = userSchema.safeParse({
@@ -63,9 +66,6 @@ router.post('/signup', upload.single('profilePic'), async (req, res) => {
         password: hashedPassword,
     });
 
-    const account = await accountModel.create({
-        userID: newUser._id,
-    });
 
     const token = jwt.sign({ id: newUser._id }, "secretToken");
     return res.status(200).json({
@@ -186,8 +186,6 @@ router.get('/fetchDetails',authMiddleware, async(req,res)=>{
 
 })
 router.post('/fetchAnyUser',authMiddleware, async(req,res)=>{
-
-
     const user = await userModel.findById(req.body.userID)
     if(!user){
         return res.json({
