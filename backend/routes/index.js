@@ -32,8 +32,6 @@ const upload = multer({ storage: storage });
 
 // Signup API
 router.post('/signup', upload.single('profilePic'), async (req, res) => {
-    res.send('Welcome')
-    console.log(hey)
     const { username, password, firstName, lastName } = req.body;
     const profilePicPath = req.file ? req.file.path : ''; // Handle the file path
     const validationResult = userSchema.safeParse({
