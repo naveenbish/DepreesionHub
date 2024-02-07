@@ -1,0 +1,15 @@
+{
+  "name": "depressionhub",
+  "version": "1.0.0",
+  "description": "backend depressionhub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tanmay4l",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "zod": "^3.22.4"
+  }
+}
