@@ -1,9 +1,11 @@
 import styles from "../style";
+import ChatBot from "./ChatBot"
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "../components";
 
 export default function Home() {
   return (
     <>
+      <ChatBot />
       <div className="bg-primary w-full overflow-hidden">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
